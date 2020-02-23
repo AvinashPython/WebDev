@@ -1,0 +1,65 @@
+{% extends "main.html"%}
+{% block body%}
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="linreg-tab" data-toggle="tab" href="#linreg" role="tab" aria-controls="home" aria-selected="true">Linear Regression</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="logreg-tab" data-toggle="tab" href="#logreg" role="tab" aria-controls="logreg" aria-selected="false">Logistic Regression</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="nuenet-tab" data-toggle="tab" href="#nuenet" role="tab" aria-controls="nuenet" aria-selected="false">Nueral Networks</a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane fade show active" id="linreg" role="tabpanel" aria-labelledby="linreg-tab" style="min-height:100%; width:100%">
+    <div class="pt-md-3 pb-md-4">
+      <h2 class="bd-title mt-0">DATA SETS</h2>
+      <p class="bd-lead">
+        Quickly select a data set to explore various visualization options available.
+      </p>
+    </div>
+    {% for set in content_dict["Linear Regression"] %}
+      <article class="media content-section">
+        <div class="media-body">
+          <h3 style="color:blue"><a class="article-title" >{{set[0]}}</a></h3>
+          <table border=2 cellpadding=10>
+              <tr>
+                  <td bgcolor="#DDEEFF"><p class="normal"><b>Name:&nbsp;&nbsp;</b></p></td>
+                  <td><p class="normal">{{set[0]}}</p></td>
+                  <td bgcolor="#DDEEFF"><p class="normal"><b>Number of Instances/Data:</b></p></td>
+                  <td><p class="normal">{{set[2]}}</p></td>
+              </tr>
+              <tr>
+                  <td bgcolor="#DDEEFF"><p class="normal"><b>Number of Attributes/Columns</b></p></td>
+                  <td><p class="normal">{{set[3]}}</p></td>
+                  <td bgcolor="#DDEEFF"><p class="normal"><b>Attributes Examples:</b></p></td>
+                  <td><p class="normal">{{set[4]}}</p></td>
+              </tr>
+              <tr>
+                  <td bgcolor="#DDEEFF"><p class="normal"><b>Objective</b></p></td>
+                  <td><p class="normal">{{set[5]}}</p></td>
+                  <td bgcolor="#DDEEFF"><p class="normal"><b>Answer:</b></p></td>
+                  <td><p class="normal">{{set[6]}}</p></td>
+              </tr>
+          </table>
+          <p class="article-content" style="text-align:justify">
+              {{set[1]}}
+
+              <a href="{{ url_for('/dash/') }}" class="btn btn-success" role="button" aria-pressed="true">Visualize</a>
+          </p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+  <div class="tab-pane fade" id="logreg" role="tabpanel" aria-labelledby="logreg-tab">
+    Yet to add
+  </div>
+  <div class="tab-pane fade" id="nuenet" role="tabpanel" aria-labelledby="nuenet-tab">
+    yet to add
+  </div>
+
+</div>
+
+{% endblock %}
